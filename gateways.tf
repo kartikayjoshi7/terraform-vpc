@@ -6,3 +6,4 @@ resource "aws_internet_gateway" "gw" {
     ENV=var.ENV
   }
 }
+
