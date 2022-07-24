@@ -19,3 +19,16 @@ resource "aws_route_table" "private-table" {
     ENV =var.ENV
   }
 }
+
+
+resource "aws_route_table_association" "public" {
+  count = length(aws_subnet.public-subnets)
+  subnet_id      = aws_subnet.public-subnets.*.id
+  route_table_id = aws_route_table.public-table.id
+}
+
+resource "aws_route_table_association" "private" {
+  count = length(aws_subnet.private-subnets)
+  subnet_id      = aws_subnet.private-subnets.*.id
+  route_table_id = aws_route_table.private-table.id
+}
