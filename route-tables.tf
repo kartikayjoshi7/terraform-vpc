@@ -47,3 +47,7 @@ resource "aws_route" "private-ngw-route" {
   gateway_id                = aws_nat_gateway.ngw.id
 
 }
+
+
+
+
